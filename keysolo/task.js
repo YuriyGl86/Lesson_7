@@ -68,11 +68,16 @@ class Game {
     const word = this.getWord();
 
     this.renderWord(word);
-    
+
+    this.setTimer(word)
+  }
+
+  setTimer(word){
     if(this.timer) clearInterval(this.timer);
     this.timeElement.innerText = word.length;
     this.timer = setInterval(this.timeCounter.bind(this), 1000)
   }
+
 
   timeCounter(){
     if(--this.timeElement.innerText == 0){
